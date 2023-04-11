@@ -1,0 +1,27 @@
+﻿@model Secret
+@{
+    ViewData["Title"] = "Secret créé";
+}
+
+<h1 class="fs-3 text-center">Partagez ce lien :</h1>
+<div class="highlight">
+    <button class="btn btn-sm btn-link btn-copy" data-copy><i class="fa fa-copy"></i></button>
+    <pre id="secret-content">@ViewBag.SecretUrl</pre>
+</div>
+<hr />
+<div class="text-center">
+    <a asp-action="Index" class="btn btn-primary">Partager un nouveau secret</a>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $(document).on("click", ".btn-copy", () => {
+                navigator.clipboard.writeText($("#secret-content").text()).then(() => {
+                    $(".btn-copy i").addClass("fa-check");
+                    $(".btn-copy i").removeClass("fa-copy");
+                });
+            });
+        });
+    </script>
+}

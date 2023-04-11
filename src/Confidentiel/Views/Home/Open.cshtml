@@ -1,0 +1,10 @@
+﻿@model Guid
+@{
+    ViewData["Title"] = "Ouvrir un secret";
+}
+
+<h1 class="fs-3 text-center">Cliquez pour continuer :</h1>
+<div class="text-center">
+    <a asp-action="Secret" asp-route-id="@Model" class="btn btn-primary">Voir le secret</a>
+</div>
+<small>Attention : Il ne pourra plus être consulté après son ouverture.</small>

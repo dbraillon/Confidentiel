@@ -1,0 +1,15 @@
+﻿@model Secret
+@{
+    ViewData["Title"] = "Partager un secret";
+}
+
+<h1 class="fs-3 text-center">Partagez un mot de passe, un message secret ou un lien privé ci-dessous.</h1>
+<p class="fs-5 fw-light fst-italic text-center">Gardez les informations sensibles en dehors de vos mails et des vos tchats.</p>
+<form asp-action="Create" method="post" class="text-center">
+    <textarea asp-for="Value" placeholder="Contenu secret ici..." class="form-control" style="height:150px"></textarea>
+    <button type="submit" class="btn btn-primary mt-3">Créer un lien secret *</button>
+</form>
+<hr />
+<p>* Un lien secret ne fonctionne qu'une fois et disparait pour toujours.</p>
+
+@await Html.PartialAsync("_ValidationScriptsPartial")
